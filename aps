@@ -1,0 +1,35 @@
+//Joao Pedro Macario Pereira Alves De Sousa
+// Matricula-2024100954
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num === 2) return true;
+    if (num % 2 === 0) return false;
+    for (let i = 3; i <= num/2; i += 2) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+function findLargestPrimes() {
+    const startNum = parseInt(prompt("Digite um número: "), 10);
+
+    const primes = [];
+    let num = startNum;
+
+    while (primes.length < 10) {
+        if (isPrime(num)) {
+            primes.push(num);
+        }
+        num++;
+    }
+
+    primes.sort((a, b) => b - a); // Ordenar os primos em ordem decrescente
+
+    console.log(`Os 10 maiores números primos a partir de ${startNum} são:`);
+    primes.forEach(prime => console.log(prime));
+}
+
+// Chamar a função para executar
+findLargestPrimes();
+
+
